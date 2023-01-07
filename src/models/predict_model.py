@@ -6,16 +6,13 @@ import click
 
 from src.data.CorruptMNISTDataset import CorruptMNISTDataset
 from src.models.model import MyAwesomeModel
-from torch.utils.data import DataLoader
-from torch import nn, optim
-import matplotlib.pyplot as plt
 
 import helper
 
 
 @click.command()
 @click.argument("i")
-@click.option("--checkpoint", default="checkpoint", help='Checkpoint file')
+@click.option("--checkpoint", default="checkpoint", help="Checkpoint file")
 def main(i, checkpoint):
 
     print("Evaluating until hitting the ceiling")
@@ -24,7 +21,7 @@ def main(i, checkpoint):
 
     data_dir = root_dir / "data" / "processed"
     models_dir = root_dir / "models"
-    
+
     state_dict = torch.load(models_dir / f"{checkpoint}.pth")
 
     model = MyAwesomeModel()
