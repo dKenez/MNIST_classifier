@@ -14,7 +14,11 @@ import matplotlib.pyplot as plt
 
 @click.command()
 @click.option("--lr", default=1e-3, help="learning rate to use for training")
-@click.option("--checkpoint", default="checkpoint", help="checkpoint file name without file extension")
+@click.option(
+    "--checkpoint",
+    default="checkpoint",
+    help="checkpoint file name without file extension",
+)
 def main(lr: float, checkpoint: str):
     print("Training day and night")
 
@@ -24,8 +28,8 @@ def main(lr: float, checkpoint: str):
     models_dir = root_dir / "models"
     figures_dir = root_dir / "reports" / "figures"
 
-    train_data = CorruptMNISTDataset(data_dir / "train.npz", 64*10*8)
-    test_data = CorruptMNISTDataset(data_dir / "test.npz", 64*10*2)
+    train_data = CorruptMNISTDataset(data_dir / "train.npz", 64 * 10 * 8)
+    test_data = CorruptMNISTDataset(data_dir / "test.npz", 64 * 10 * 2)
 
     train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
     test_loader = DataLoader(test_data, batch_size=64)

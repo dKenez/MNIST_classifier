@@ -24,8 +24,5 @@ class MyAwesomeModel(nn.Module):
 
         # output so no dropout here
         x = F.log_softmax(self.fc4(x), dim=1)
-  
+
         return x
-
-
-           

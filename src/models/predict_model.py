@@ -41,7 +41,7 @@ def main(i, checkpoint):
 
     ps = torch.exp(output)
     _, top_class = output.topk(1, dim=1)
-    click.echo(int(top_class[0,0]))
+    click.echo(int(top_class[0, 0]))
     # Plot the image and probabilities
     # helper.view_classify(img.view(1, 28, 28), ps)
 
