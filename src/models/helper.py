@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
+from typing import Any
 import numpy as np
 from torch import nn, optim
 from torch.autograd import Variable
 
 
-def test_network(net, trainloader):
+def test_network(net: Any, trainloader: Any) -> Any:
 
     criterion = nn.MSELoss()
     optimizer = optim.Adam(net.parameters(), lr=0.001)
@@ -28,7 +29,7 @@ def test_network(net, trainloader):
     return True
 
 
-def imshow(image, ax=None, title=None, normalize=True):
+def imshow(image: Any, ax=None, title=None, normalize=True) -> Any:
     """Imshow for Tensor."""
     if ax is None:
         fig, ax = plt.subplots()
@@ -52,7 +53,7 @@ def imshow(image, ax=None, title=None, normalize=True):
     return ax
 
 
-def view_recon(img, recon):
+def view_recon(img: Any, recon: Any) -> Any:
     """Function for displaying an image (as a PyTorch Tensor) and its
     reconstruction also a PyTorch Tensor
     """
@@ -65,7 +66,7 @@ def view_recon(img, recon):
         ax.set_adjustable("box-forced")
 
 
-def view_classify(img, ps, version="MNIST"):
+def view_classify(img: Any, ps: Any, version="MNIST") -> Any:
     """Function for viewing an image and it's predicted classes."""
     ps = ps.data.numpy().squeeze()
 
